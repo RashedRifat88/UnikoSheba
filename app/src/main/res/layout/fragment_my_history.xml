@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.my_history.MyHistoryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.account.AccountFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_resources"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear_header"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:padding="0dp">
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear_header"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:orientation="horizontal"
+                    android:padding="0dp"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linear_header"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginBottom="65dp"
+                        android:minHeight="50dp"
+                        android:orientation="vertical">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/animationView"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="0dp"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/loader30"
+                            app:lottie_speed="1"
+                            tools:ignore="MissingConstraints" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@drawable/bottom_rounded_bg1"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="35dp"
+                    android:foregroundGravity="center_horizontal"
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/rifat" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Rashed Rifat"
+                    android:textColor="#fff"
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignParentBottom="true"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                android:layout_marginLeft="20dp"-->
+            <!--                android:layout_marginRight="20dp"-->
+            <!--                android:elevation="0dp"-->
+            <!--                android:minHeight="120dp"-->
+            <!--                app:cardCornerRadius="15dp">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp"-->
+            <!--                    android:weightSum="3">-->
+
+            <!--                    <LinearLayout-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:orientation="vertical">-->
+
+            <!--                        <androidx.cardview.widget.CardView-->
+            <!--                            android:layout_width="75dp"-->
+            <!--                            android:layout_height="75dp"-->
+            <!--                            android:layout_gravity="center_horizontal"-->
+            <!--                            android:layout_marginTop="5dp"-->
+            <!--                            android:layout_marginBottom="5dp"-->
+            <!--                            android:foregroundGravity="center_horizontal"-->
+            <!--                            app:cardCornerRadius="100dp">-->
+
+            <!--                            <ImageView-->
+            <!--                                android:layout_width="match_parent"-->
+            <!--                                android:layout_height="match_parent"-->
+            <!--                                android:src="@drawable/ic_user1"-->
+            <!--                                app:tint="@color/colorPrimary" />-->
+
+            <!--                        </androidx.cardview.widget.CardView>-->
+
+            <!--                        &lt;!&ndash;                    <TextView&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:text="1000K+"&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:textColor="@color/colorPrimary"&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:textSize="27dp"&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        android:textStyle="bold" />&ndash;&gt;-->
+
+            <!--                    </LinearLayout>-->
+
+            <!--                    <LinearLayout-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_marginLeft="10dp"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:layout_marginRight="10dp"-->
+            <!--                        android:layout_marginBottom="10dp"-->
+            <!--                        android:layout_weight="2"-->
+            <!--                        android:gravity="left"-->
+            <!--                        android:orientation="vertical">-->
+
+            <!--                        <TextView-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:fontFamily="@font/roboto_regular"-->
+            <!--                            android:text="Rashed Rifat"-->
+            <!--                            android:textColor="@color/black"-->
+            <!--                            android:textSize="18dp" />-->
+
+            <!--                        <TextView-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:fontFamily="@font/roboto_regular"-->
+            <!--                            android:text="018xx xxxxxx"-->
+            <!--                            android:textColor="@color/grey_600"-->
+            <!--                            android:textSize="17dp" />-->
+
+            <!--                        <TextView-->
+            <!--                            android:id="@+id/tv_edit_profile"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:clickable="true"-->
+            <!--                            android:fontFamily="@font/roboto_regular"-->
+            <!--                            android:foreground="?android:attr/selectableItemBackground"-->
+            <!--                            android:paddingTop="8dp"-->
+            <!--                            android:paddingBottom="8dp"-->
+            <!--                            android:text="Edit Profile"-->
+            <!--                            android:textColor="@color/colorPrimary"-->
+            <!--                            android:textSize="18dp" />-->
+
+            <!--                    </LinearLayout>-->
+
+            <!--                </LinearLayout>-->
+
+
+            <!--            </androidx.cardview.widget.CardView>-->
+        </RelativeLayout>
+
+
+        <!--        <androidx.core.widget.NestedScrollView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--            <LinearLayout-->
+        <!--                android:visibility="gone"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="20dp"-->
+        <!--                android:layout_marginBottom="70dp"-->
+        <!--                android:paddingRight="10dp"-->
+        <!--                android:paddingLeft="10dp"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
+
+
+        <!--                <LinearLayout-->
+        <!--                    android:id="@+id/linear_appointment"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_margin="10dp"-->
+        <!--                    android:backgroundTint="@color/white"-->
+        <!--                    android:background="@drawable/rounded_button"-->
+        <!--                    android:gravity="center">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_calendar" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1"-->
+        <!--                        android:paddingBottom="10dp"-->
+        <!--                        android:paddingTop="10dp"-->
+        <!--                        android:text="Appointment"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textStyle="bold" />-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_right" />-->
+        <!--                </LinearLayout>-->
+
+
+        <!--                <LinearLayout-->
+        <!--                    android:id="@+id/linear_report"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_margin="10dp"-->
+        <!--                    android:backgroundTint="@color/white"-->
+        <!--                    android:background="@drawable/rounded_button"-->
+        <!--                    android:gravity="center">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_prescription_sidebar" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1"-->
+        <!--                        android:paddingBottom="10dp"-->
+        <!--                        android:paddingTop="10dp"-->
+        <!--                        android:text="Pathology"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textStyle="bold" />-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_right" />-->
+        <!--                </LinearLayout>-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:id="@+id/linear_nursing"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_margin="10dp"-->
+        <!--                    android:backgroundTint="@color/white"-->
+        <!--                    android:background="@drawable/rounded_button"-->
+        <!--                    android:gravity="center">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_nursing_hospital" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1"-->
+        <!--                        android:paddingBottom="10dp"-->
+        <!--                        android:paddingTop="10dp"-->
+        <!--                        android:text="Nursing"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textStyle="bold" />-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:padding="8dp"-->
+        <!--                        android:src="@drawable/ic_right" />-->
+        <!--                </LinearLayout>-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_appointment"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_calendar"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/black" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Appointment"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_report"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Report"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_nursing"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Nursing"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_ambulance"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Ambulance"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_tution"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Tution"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_buy_sell"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Buy and Sell"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_blood_donation"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Blood Donation"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_house_rent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="House Rent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_jobs"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Jobs"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/linear_quiz"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginLeft="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="25dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/rounded_corner9"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:clickable="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:foreground="?android:attr/selectableItemBackground"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingTop="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:paddingBottom="8dp">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="45dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:padding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:src="@drawable/ic_paper_with_text"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        app:tint="@color/colorPrimary" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:text="Quiz"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textColor="#000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                        android:textSize="17dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--            </LinearLayout>-->
+
+        <!--        </androidx.core.widget.NestedScrollView>-->
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

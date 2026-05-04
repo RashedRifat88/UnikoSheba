@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.services.ServicesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/relative_actionbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="12dp"
+                        android:minHeight="55dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        >
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/topBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginRight="0dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/img_back"
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="10dp"
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_arrow_back2" />
+
+                                <TextView
+                                    android:id="@+id/tv_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@id/img_back"
+                                    android:text="Services"
+                                    android:textColor="#222"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+
+                                <!-- CART -->
+
+                                <FrameLayout
+                                    android:id="@+id/frame_cart"
+                                    style="?attr/actionButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="1dp"
+                                    android:clipToPadding="false"
+                                    android:focusable="true">
+
+                                    <ImageView
+                                        android:layout_width="26dp"
+                                        android:layout_height="26dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_cart2"
+                                        app:tint="@color/black" />
+
+                                    <TextView
+                                        android:id="@+id/tv_cart_badge_count"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="right|end|top"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="-5dp"
+                                        android:layout_marginRight="-5dp"
+                                        android:background="@drawable/badge_background"
+                                        android:gravity="center"
+                                        android:padding="3dp"
+                                        android:text="0"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="9dp" />
+
+                                </FrameLayout>
+
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </RelativeLayout>
+
+
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/relative_actionbar"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="12dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="12dp"-->
+<!--                        android:background="@drawable/rounded_corner_home_title_bar2"-->
+<!--                        android:minHeight="55dp"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                        app:layout_constraintRight_toRightOf="parent"-->
+<!--                        >-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/img_back"-->
+<!--                            android:layout_width="38dp"-->
+<!--                            android:layout_height="38dp"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_marginLeft="6dp"-->
+<!--                            android:layout_marginRight="10dp"-->
+<!--                            android:padding="7dp"-->
+<!--                            android:src="@drawable/ic_arrow_back2"-->
+<!--                            app:tint="@color/black" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_title"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/coresanscrbold"-->
+<!--                            android:text="Services"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="17dp"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_toRightOf="@+id/img_back"-->
+<!--                            android:layout_marginLeft="0dp"-->
+
+<!--                            />-->
+
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            style="?attr/actionButtonStyle"-->
+<!--                            android:orientation="horizontal">-->
+
+
+<!--&lt;!&ndash;                            <FrameLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:id="@+id/frame_search"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_marginRight="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:clipToPadding="false"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:focusable="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:src="@drawable/ic_search3"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    app:tint="@color/black" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            </FrameLayout>&ndash;&gt;-->
+
+<!--                            <FrameLayout-->
+<!--                                android:id="@+id/frame_cart"-->
+<!--                                style="?attr/actionButtonStyle"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_marginRight="1dp"-->
+<!--                                android:clipToPadding="false"-->
+<!--                                android:focusable="true">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="22dp"-->
+<!--                                    android:layout_height="22dp"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:src="@drawable/ic_cart2"-->
+<!--                                    app:tint="@color/black" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/tv_cart_badge_count"-->
+<!--                                    android:layout_width="20dp"-->
+<!--                                    android:layout_height="20dp"-->
+<!--                                    android:layout_gravity="right|end|top"-->
+<!--                                    android:layout_marginTop="3dp"-->
+<!--                                    android:layout_marginEnd="-5dp"-->
+<!--                                    android:layout_marginRight="-5dp"-->
+<!--                                    android:background="@drawable/badge_background"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:padding="3dp"-->
+<!--                                    android:text="0"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:textSize="9dp" />-->
+
+<!--                            </FrameLayout>-->
+
+
+<!--&lt;!&ndash;                            <FrameLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:id="@+id/frame_notification"&ndash;&gt;-->
+<!--&lt;!&ndash;                                style="?attr/actionButtonStyle"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_marginRight="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:clipToPadding="false"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:focusable="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:src="@drawable/ic_bell4"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    app:tint="@color/black" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:id="@+id/tv_notification_badge_count"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_gravity="right|end|top"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginTop="3dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginEnd="-5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginRight="-5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:background="@drawable/badge_background"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:padding="3dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:text="0"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textColor="@android:color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textSize="9dp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </FrameLayout>&ndash;&gt;-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash;        <FrameLayout&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:id="@+id/frame_notification"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            style="?attr/actionButtonStyle"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_alignParentRight="true"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_centerVertical="true"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_marginRight="6dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:clipToPadding="false"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:focusable="true">&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;            <ImageView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_width="26dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_height="26dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:src="@drawable/ic_bell4"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                app:tint="@color/black" />&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:id="@+id/tv_notification_badge_count"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_width="20dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_height="20dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_gravity="right|end|top"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_marginTop="3dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_marginEnd="-5dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:layout_marginRight="-5dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:background="@drawable/badge_background"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:gravity="center"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:padding="3dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:text="0"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:textColor="@android:color/white"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                android:textSize="10dp" />&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;        </FrameLayout>&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:id="@+id/iv_notification_top"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_width="44dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_height="44dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:padding="10dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_alignParentRight="true"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_centerVertical="true"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:layout_marginRight="16dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            app:tint="@color/white"&ndash;&gt;-->
+<!--                        &lt;!&ndash;            android:src="@drawable/ic_notifications_black_24dp" />&ndash;&gt;-->
+
+
+<!--                    </RelativeLayout>-->
+
+                    <!-- TOP BAR -->
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/linear_popular_programs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="0dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/linear_e_library"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="0dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- CATEGORY -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvCategory"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:background="#F5F5F5"/>
+
+                        <!-- SERVICES -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvService"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layoutAnimation="@anim/layout_animation"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
