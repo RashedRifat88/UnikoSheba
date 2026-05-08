@@ -104,7 +104,7 @@ public class ServicesActivity extends AppCompatActivity {
         rvService.setAdapter(serviceAdapter);
     }
 
-    // 🔥 Load category + subcategory
+    //  Load category + subcategory
     @SuppressLint("CheckResult")
     private void singleCat() {
 
@@ -168,7 +168,7 @@ public class ServicesActivity extends AppCompatActivity {
                 });
     }
 
-    // 🔥 Load services of selected subcategory
+    //  Load services of selected subcategory
     @SuppressLint("CheckResult")
     private void singleSubCat(String subCatId) {
 
@@ -207,7 +207,7 @@ public class ServicesActivity extends AppCompatActivity {
                             ));
                         }
 
-                        // 🔥 update adapter
+                        //  update adapter
                         serviceAdapter = new ServicesAdapter(this, services);
                         rvService.setAdapter(serviceAdapter);
 
@@ -656,7 +656,7 @@ public class ServicesActivity extends AppCompatActivity {
 //    protected void onResume() {
 //        super.onResume();
 //
-//        updateCartBadge(); // 🔥 important
+//        updateCartBadge(); //  important
 //    }
 //
 //

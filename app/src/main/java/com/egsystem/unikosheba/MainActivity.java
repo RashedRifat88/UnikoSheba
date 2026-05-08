@@ -20,6 +20,7 @@ import com.egsystem.unikosheba.model.CategoryModel;
 import com.egsystem.unikosheba.model.SetFcmTokenModel;
 import com.egsystem.unikosheba.model.UserAccountModel;
 import com.egsystem.unikosheba.retrofit.RetrofitApiClient;
+import com.egsystem.unikosheba.ui.services.ServiceSearchActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout linear1, linear10;
     DrawerLayout drawerLayout;
     ImageView iv_menu1;
-    FrameLayout frame_notification;
+    FrameLayout frame_notification, frame_search;
     ActionBarDrawerToggle toggle;
     NavigationView navigationViewDrawer;
     Toolbar toolbar;
@@ -99,12 +100,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        db.clearCart();
 
         frame_cart = findViewById(R.id.frame_cart);
+        frame_search = findViewById(R.id.frame_search);
         tv_cart_badge_count = findViewById(R.id.tv_cart_badge_count);
 
         updateCartBadge();
 
         frame_cart.setOnClickListener(v -> {
                 Intent intent = new Intent(MainActivity.this, CartListActivity.class);
+                startActivity(intent);
+        });
+
+        frame_search.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, ServiceSearchActivity.class);
                 startActivity(intent);
         });
 

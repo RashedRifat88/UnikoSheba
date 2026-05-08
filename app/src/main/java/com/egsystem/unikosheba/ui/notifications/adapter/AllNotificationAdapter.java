@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.egsystem.unikosheba.R;
 import com.egsystem.unikosheba.model.AllNotificationModel;
+import com.egsystem.unikosheba.model.NotificationModel;
 
 import org.json.JSONObject;
 
@@ -30,7 +31,7 @@ import java.util.TimeZone;
 public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotificationAdapter.AppointmentHistoryViewHolder> {
 
     private List<String> dataSet = new ArrayList<>();
-    private List<AllNotificationModel.Notification> appointmentList = new ArrayList<>();
+    private List<NotificationModel.Result> appointmentList = new ArrayList<>();
     private List<String> popularTopicTitleList = new ArrayList<>();
     private List<String> popularTopicPriceList = new ArrayList<>();
     private boolean allItemStatus = false;
@@ -70,7 +71,7 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
     }
 
 
-    public void setData(List<AllNotificationModel.Notification> appointmentList, String from_where) {
+    public void setData(List<NotificationModel.Result> appointmentList, String from_where) {
         this.appointmentList = appointmentList;
         this.from_where = from_where;
         Log.d("tagResponse", " appointmentList: " + appointmentList);
@@ -124,11 +125,11 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
 //        cardview.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fall_down_animation));
 
 
-        AllNotificationModel.Notification appointment = appointmentList.get(position);
+        NotificationModel.Result appointment = appointmentList.get(position);
 
 
-        String date1 = appointment.getCreatedAt();
-        String message_json = appointment.getData();
+        String date1 = appointment.getSentAt();
+//        String message_json = appointment.getData();
 //        String aStatus = appointment.getStatus();
 
 
@@ -136,7 +137,7 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
         String defaultTimezone = TimeZone.getDefault().getID();
         Date date = null;
         try {
-            date = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(string.replaceAll("Z$", "+0000"));
+            date = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(date1.replaceAll("Z$", "+0000"));
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -147,7 +148,7 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
 
 
 
-        Log.d("tag12345", "message_json: "+ message_json);
+//        Log.d("tag12345", "message_json: "+ message_json);
 
 //        String pathStr = "C:\\tempFolder\\temp.txt";
 //        pathStr = pathStr.replaceAll("\\\\","");
@@ -155,21 +156,21 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
         String actualMessage = "";
 
 
-        try {
+//        try {
+//
+//            JSONObject obj = new JSONObject(message_json);
+//            actualMessage = obj.getString("message");
+//
+//
+//        } catch (Throwable tx) {
+//            Log.e("My App", "Could not parse malformed JSON: \"" + message_json + "\"");
+//        }
 
-            JSONObject obj = new JSONObject(message_json);
-            actualMessage = obj.getString("message");
 
 
-        } catch (Throwable tx) {
-            Log.e("My App", "Could not parse malformed JSON: \"" + message_json + "\"");
-        }
-
-
-
-        tv1.setText(actualMessage);
+        tv1.setText(appointment.getMessage());
         tv2.setText(final_date);
-//        tv3.setText("Status: " + aStatus);
+        tv3.setText("type: " + appointment.getType());
 //        tv4.setText(date);
 
 //        if (aStatus.equalsIgnoreCase("In Progress")) {

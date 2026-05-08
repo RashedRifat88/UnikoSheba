@@ -18,6 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.egsystem.unikosheba.data.SharedData;
 import com.egsystem.unikosheba.databinding.FragmentNotificationsBinding;
 import com.egsystem.unikosheba.model.AllNotificationModel;
+import com.egsystem.unikosheba.model.NotificationModel;
 import com.egsystem.unikosheba.retrofit.RetrofitApiClient;
 import com.egsystem.unikosheba.ui.notifications.adapter.AllNotificationAdapter;
 
@@ -130,10 +131,10 @@ public class NotificationsFragment extends Fragment {
 
                                 binding.animationView.setVisibility(View.GONE);
 
-                                AllNotificationModel model = response.body();
+                                NotificationModel model = response.body();
                                 Log.d("tag11111", " model: " + model);
 
-                                List<AllNotificationModel.Notification> notifi_list = model.getResult().getNotifications();
+                                List<NotificationModel.Result> notifi_list = model.getResults();
                                 Log.d("tag11111", " notifi_list: " + notifi_list);
 
 //                                Collections.reverse(notifi_list);

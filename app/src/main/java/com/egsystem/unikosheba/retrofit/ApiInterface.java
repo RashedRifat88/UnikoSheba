@@ -43,6 +43,7 @@ import com.egsystem.unikosheba.model.LoginModel;
 import com.egsystem.unikosheba.model.MakeAppointmentModel;
 import com.egsystem.unikosheba.model.MyAccountImageUpdateModel;
 import com.egsystem.unikosheba.model.NotificationMarkAsReadModel;
+import com.egsystem.unikosheba.model.NotificationModel;
 import com.egsystem.unikosheba.model.NursePackageListModel;
 import com.egsystem.unikosheba.model.NursePackagePurchaseHistoryModel;
 import com.egsystem.unikosheba.model.NursePackagePurchaseModel;
@@ -354,9 +355,13 @@ public interface ApiInterface {
     );
 
 
+    //    @GET(Api.all_notification)
+//    Observable<Response<AllNotificationModel>> all_notification(@Header("authorization") String authorization,
+//                                                                @Header("Accept") String accept
+//    );
     @GET(Api.all_notification)
-    Observable<Response<AllNotificationModel>> all_notification(@Header("authorization") String authorization,
-                                                                @Header("Accept") String accept
+    Observable<Response<NotificationModel>> all_notification(@Header("authorization") String authorization,
+                                                             @Header("Accept") String accept
     );
 
 
@@ -477,7 +482,7 @@ public interface ApiInterface {
     @GET(Api.home_scroll_texts)
     Observable<Response<HomeScrollTextsModel>> home_scroll_texts(
 //            @Header("authorization") String authorization,
-                                                                 @Header("Accept") String accept
+            @Header("Accept") String accept
 
     );
 
@@ -680,10 +685,11 @@ public interface ApiInterface {
     );
 
 
-    @Headers("Content-Type: application/json")
+//    @Headers("Content-Type: application/json")
     @GET(Api.services)
-    Observable<Response<ServiceModel>> services(@Header("authorization") String authorization,
-                                                @Header("Accept") String accept
+    Observable<Response<ServiceModel>> services(
+//            @Header("authorization") String authorization,
+            @Header("Accept") String accept
 
     );
 
