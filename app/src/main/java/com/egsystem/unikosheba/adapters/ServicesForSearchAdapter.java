@@ -88,13 +88,13 @@ public class ServicesForSearchAdapter extends RecyclerView.Adapter<ServicesForSe
                 .into(holder.img);
 
         holder.linear_main.setOnClickListener(v ->{
+
+            listener.onClick(list.get(position));
+
             Intent productDetailsIntent = new Intent(context, ItemDetailsActivity.class);
             productDetailsIntent.putExtra("TITLE_NAME", list.get(position).title);
             productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
             productDetailsIntent.putExtra("item", list.get(position));
-
-            listener.onClick(list.get(position));
-
             context.startActivity(productDetailsIntent);
             ((AppCompatActivity) context).finish();
         });

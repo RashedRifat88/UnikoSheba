@@ -60,6 +60,8 @@ public class ServiceSearchActivity extends AppCompatActivity {
         loadRecentSearches();
 
         singleSubCat();
+
+//        clearRecentSearches();
     }
 
 
@@ -125,24 +127,50 @@ public class ServiceSearchActivity extends AppCompatActivity {
         // EMPTY ADAPTER
 //        serviceAdapter = new ServicesForSearchAdapter(this, filteredServices);
 
+//        serviceAdapter = new ServicesForSearchAdapter(
+//                this,
+//                filteredServices,
+//                service -> {
+//
+//                    // SAVE RECENT
+//                    saveRecentSearch(service.getName());
+//
+//                    // OPEN DETAILS
+////            Intent intent = new Intent(this, DetailsActivity.class);
+////            startActivity(intent);
+//
+////                    Toast.makeText(this,
+////                            service.getName(),
+////                            Toast.LENGTH_SHORT).show();
+//
+//                }
+//        );
+
+
         serviceAdapter = new ServicesForSearchAdapter(
                 this,
                 filteredServices,
                 service -> {
 
-                    // SAVE RECENT
+                    // SAVE clicked service name to SharedPreferences
                     saveRecentSearch(service.getName());
 
-                    // OPEN DETAILS
-//            Intent intent = new Intent(this, DetailsActivity.class);
-//            startActivity(intent);
+                    // Refresh recent search horizontal list immediately
+                    loadRecentSearches();
 
-//                    Toast.makeText(this,
-//                            service.getName(),
-//                            Toast.LENGTH_SHORT).show();
+                    // Optional debug
+                    android.util.Log.e("RECENT_SEARCH", "Saved: " + service.getName());
 
+                    // TODO: Your existing click action here
+                    // Example:
+                    // Intent intent = new Intent(this, ServiceDetailsActivity.class);
+                    // intent.putExtra("service_id", service.getServiceId());
+                    // startActivity(intent);
                 }
         );
+
+
+
 
         rvService.setAdapter(serviceAdapter);
 
@@ -174,7 +202,7 @@ public class ServiceSearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                saveRecentSearch(query);
+//                saveRecentSearch(query);
 
                 filterServices(query);
 
@@ -216,6 +244,24 @@ public class ServiceSearchActivity extends AppCompatActivity {
                 .apply();
 
         recentSearchAdapter.notifyDataSetChanged();
+    }
+
+
+    private void clearRecentSearches() {
+
+        // Remove saved JSON/string from SharedPreferences
+        getSharedPreferences("search_pref", MODE_PRIVATE)
+                .edit()
+                .remove("recent_searches")   // same key used in saveRecentSearch()
+                .apply();
+
+        // Clear in-memory list
+        recentSearchList.clear();
+
+        // Refresh horizontal RecyclerView adapter
+        if (recentSearchAdapter != null) {
+            recentSearchAdapter.notifyDataSetChanged();
+        }
     }
 
 
