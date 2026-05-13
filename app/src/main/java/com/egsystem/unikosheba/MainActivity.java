@@ -18,9 +18,12 @@ import com.egsystem.unikosheba.databinding.ActivityMainWithDrawerBinding;
 import com.egsystem.unikosheba.model.AllNotificationModel;
 import com.egsystem.unikosheba.model.CategoryModel;
 import com.egsystem.unikosheba.model.SetFcmTokenModel;
+import com.egsystem.unikosheba.model.UnreadNotificationsCountModel;
 import com.egsystem.unikosheba.model.UserAccountModel;
 import com.egsystem.unikosheba.retrofit.RetrofitApiClient;
+import com.egsystem.unikosheba.ui.notifications.NotificationsActivity;
 import com.egsystem.unikosheba.ui.services.ServiceSearchActivity;
+import com.egsystem.unikosheba.utils.AppUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         frame_cart = findViewById(R.id.frame_cart);
         frame_search = findViewById(R.id.frame_search);
+        frame_notification = findViewById(R.id.frame_notification);
         tv_cart_badge_count = findViewById(R.id.tv_cart_badge_count);
 
         updateCartBadge();
@@ -113,6 +117,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         frame_search.setOnClickListener(v -> {
                 Intent intent = new Intent(MainActivity.this, ServiceSearchActivity.class);
                 startActivity(intent);
+        });
+
+
+//        frame_notification.setOnClickListener(v -> {
+//            androidx.navigation.NavController navController =
+//                    androidx.navigation.Navigation.findNavController(
+//                            this,
+//                            R.id.nav_host_fragment_activity_main
+//                    );
+//            navController.navigate(R.id.navigation_notifications);
+//        });
+//
+
+        frame_notification.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+            startActivity(intent);
         });
 
 
@@ -134,7 +154,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initNavigationMenu();
 
 
-        notificationListApi();
+//        notificationListApi();
+        unreadNotificationCountApi();
 
         userAccount("");
 
@@ -275,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tv_notification_badge_count = findViewById(R.id.tv_notification_badge_count);
         iv_menu1 = findViewById(R.id.iv_menu1);
-        frame_notification = findViewById(R.id.frame_notification);
+//        frame_notification = findViewById(R.id.frame_notification);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationViewDrawer = findViewById(R.id.nav_view_drawer);
         navigationViewDrawer.setNavigationItemSelectedListener(this);
@@ -467,7 +488,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     @SuppressLint("CheckResult")
-    public void notificationListApi() {
+    public void unreadNotificationCountApi() {
 
         String token = SharedData.getTOKEN(this);
         String authorization = "Bearer" + " " + token;
@@ -475,27 +496,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String phone = "01814220954";
 
 
-        RetrofitApiClient.getApiInterface().unread_notifications(authorization, accept)
+        RetrofitApiClient.getApiInterface().unread_notifications_count(authorization, accept)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
                             Log.d("tag11111", " response.code(): " + response.code());
-                            Log.d("tag111444", " response.code(): " + response.code());
+                            Log.d("tag111444", " response.code() unread: " + response.code());
+
+
+                            if (response.code() == 401) {
+                                AppUtils.goToLogin(this, true);
+                                return;
+                            }
 
 
                             if (response.isSuccessful()) {
 
-                                AllNotificationModel model = response.body();
+                                UnreadNotificationsCountModel model = response.body();
                                 Log.d("tag11111", " model: " + model);
 
-                                List<AllNotificationModel.Notification> notifi_list = model.getResult().getNotifications();
-                                Log.d("tag1111166", " notifi_list: " + notifi_list);
-                                Log.d("tag1111166", " notifi_list.size: " + notifi_list.size());
+                                int unreadCount = model.getUnreadCount();
+                                Log.d("tag1111166", " unreadCount: " + unreadCount);
+                                Log.d("tag111444", " unreadCount: " + unreadCount);
 
 
-                                int unread_notification_number = notifi_list.size();
-
-                                updateNotificationsBadge(unread_notification_number);
+                                updateNotificationsBadge(unreadCount);
 
                             } else {
 
@@ -514,7 +539,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
+//    @SuppressLint("CheckResult")
+//    public void notificationListApi() {
+//
+//        String token = SharedData.getTOKEN(this);
+//        String authorization = "Bearer" + " " + token;
+//        String accept = "application/json";
+//        String phone = "01814220954";
+//
+//
+//        RetrofitApiClient.getApiInterface().all_notifications(authorization, accept)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(response -> {
+//                            Log.d("tag11111", " response.code(): " + response.code());
+//                            Log.d("tag1111166", " response.code(): " + response.code());
+//
+//
+//                            if (response.code() == 401) {
+//                                AppUtils.goToLogin(this, true);
+//                                return;
+//                            }
+//
+//
+//                            if (response.isSuccessful()) {
+//
+//                                AllNotificationModel model = response.body();
+//                                Log.d("tag11111", " model: " + model);
+//
+//                                List<AllNotificationModel.Notification> notifi_list = model.getResult().getNotifications();
+//                                Log.d("tag1111166", " notifi_list: " + notifi_list);
+//                                Log.d("tag1111166", " notifi_list.size: " + notifi_list.size());
+//
+//
+//                                int unread_notification_number = notifi_list.size();
+//
+////                                updateNotificationsBadge(unread_notification_number);
+//
+//                            } else {
+//
+//                            }
+//
+//                        },
+//                        error -> {
+//
+//                            Log.d("tag11111", " error: " + error.getMessage());
+//                        },
+//                        () -> {
+//                            Log.d("tag11111", " response.code(): ");
+//                        }
+//
+//                );
+//
+//    }
+//
+//
 
 
 
@@ -658,7 +737,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onStart() {
         Log.d("tag1111166", " onStart is called in main: ");
         super.onStart();
-        notificationListApi();
+//        notificationListApi();
+        if (SharedData.isLog)
+        unreadNotificationCountApi();
     }
 
     @Override
@@ -672,6 +753,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
 
         updateCartBadge();
+        unreadNotificationCountApi();
     }
 
 

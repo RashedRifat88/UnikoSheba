@@ -74,6 +74,7 @@ import com.egsystem.unikosheba.model.TutorProfileCreateUpdateModel;
 import com.egsystem.unikosheba.model.TutorProfileModel;
 import com.egsystem.unikosheba.model.TutorRequestListModel;
 import com.egsystem.unikosheba.model.TutorRequestPostModel;
+import com.egsystem.unikosheba.model.UnreadNotificationsCountModel;
 import com.egsystem.unikosheba.model.UpdateUserAccountModel;
 import com.egsystem.unikosheba.model.UploadTestOrderModel;
 import com.egsystem.unikosheba.model.UserAccountModel;
@@ -359,14 +360,21 @@ public interface ApiInterface {
 //    Observable<Response<AllNotificationModel>> all_notification(@Header("authorization") String authorization,
 //                                                                @Header("Accept") String accept
 //    );
+
+
     @GET(Api.all_notification)
     Observable<Response<NotificationModel>> all_notification(@Header("authorization") String authorization,
                                                              @Header("Accept") String accept
     );
 
 
-    @GET(Api.unread_notifications)
-    Observable<Response<AllNotificationModel>> unread_notifications(@Header("authorization") String authorization,
+    @GET(Api.unread_notifications_count)
+    Observable<Response<UnreadNotificationsCountModel>> unread_notifications_count(@Header("authorization") String authorization,
+                                                                                   @Header("Accept") String accept
+    );
+
+    @GET(Api.all_notifications)
+    Observable<Response<AllNotificationModel>> all_notifications(@Header("authorization") String authorization,
                                                                     @Header("Accept") String accept
     );
 

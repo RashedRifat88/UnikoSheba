@@ -55,6 +55,7 @@ public class Api {
     public static final String client_hospital_discounts = "client/client-hospital-discounts";
     public static final String doctor_appointments = "client/doctor-appointments";
     public static final String all_notification = "client/my-all-notifications";
+//    public static final String unread_notifications = "client/my-unread-notifications";
     public static final String unread_notifications = "client/my-unread-notifications";
     public static final String notification_mark_as_read = "client/notification-mark-as-read";
     public static final String pathology_hospitals = "client/diagnosis-test-orders/hospitals";
@@ -113,6 +114,8 @@ public class Api {
     public static final String subcategories = "services/subcategories";
     public static final String services = "services/services";
     public static final String jobs = "jobs/jobs/";
+    public static final String unread_notifications_count = "communication/notifications/unread-count/";
+    public static final String all_notifications = "communication/notifications/";
 
 
 

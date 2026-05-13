@@ -9,42 +9,53 @@ import java.util.List;
 
 public class AllNotificationModel {
 
-    @SerializedName("success")
+    @SerializedName("count")
     @Expose
-    private Boolean success;
-    @SerializedName("message")
+    private Integer count;
+    @SerializedName("next")
     @Expose
-    private String message;
-    @SerializedName("result")
+    private Object next;
+    @SerializedName("previous")
     @Expose
-    private Result result;
+    private Object previous;
+    @SerializedName("results")
+    @Expose
+    private List<Result> results;
 
-    public Boolean getSuccess() {
-        return success;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
-    public String getMessage() {
-        return message;
+    public Object getNext() {
+        return next;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setNext(Object next) {
+        this.next = next;
     }
 
-    public Result getResult() {
-        return result;
+    public Object getPrevious() {
+        return previous;
     }
 
-    public void setResult(Result result) {
-        this.result = result;
+    public void setPrevious(Object previous) {
+        this.previous = previous;
+    }
+
+    public List<Result> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Result> results) {
+        this.results = results;
     }
 
 
-    public class Notification {
+    public class Result {
 
         @SerializedName("id")
         @Expose
@@ -52,27 +63,24 @@ public class AllNotificationModel {
         @SerializedName("type")
         @Expose
         private String type;
-        @SerializedName("notifiable_type")
+        @SerializedName("title")
         @Expose
-        private String notifiableType;
-        @SerializedName("notifiable_id")
+        private String title;
+        @SerializedName("message")
         @Expose
-        private Integer notifiableId;
-        @SerializedName("data")
+        private String message;
+        @SerializedName("is_read")
         @Expose
-        private String data;
-        @SerializedName("read_at")
+        private Boolean isRead;
+        @SerializedName("related_job_id")
         @Expose
-        private String readAt;
-        @SerializedName("created_at")
+        private Object relatedJobId;
+        @SerializedName("related_bill_id")
         @Expose
-        private String createdAt;
-        @SerializedName("updated_at")
+        private Object relatedBillId;
+        @SerializedName("sent_at")
         @Expose
-        private String updatedAt;
-        @SerializedName("deleted_at")
-        @Expose
-        private Object deletedAt;
+        private String sentAt;
 
         public Integer getId() {
             return id;
@@ -90,76 +98,52 @@ public class AllNotificationModel {
             this.type = type;
         }
 
-        public String getNotifiableType() {
-            return notifiableType;
+        public String getTitle() {
+            return title;
         }
 
-        public void setNotifiableType(String notifiableType) {
-            this.notifiableType = notifiableType;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
-        public Integer getNotifiableId() {
-            return notifiableId;
+        public String getMessage() {
+            return message;
         }
 
-        public void setNotifiableId(Integer notifiableId) {
-            this.notifiableId = notifiableId;
+        public void setMessage(String message) {
+            this.message = message;
         }
 
-        public String getData() {
-            return data;
+        public Boolean getIsRead() {
+            return isRead;
         }
 
-        public void setData(String data) {
-            this.data = data;
+        public void setIsRead(Boolean isRead) {
+            this.isRead = isRead;
         }
 
-        public String getReadAt() {
-            return readAt;
+        public Object getRelatedJobId() {
+            return relatedJobId;
         }
 
-        public void setReadAt(String readAt) {
-            this.readAt = readAt;
+        public void setRelatedJobId(Object relatedJobId) {
+            this.relatedJobId = relatedJobId;
         }
 
-        public String getCreatedAt() {
-            return createdAt;
+        public Object getRelatedBillId() {
+            return relatedBillId;
         }
 
-        public void setCreatedAt(String createdAt) {
-            this.createdAt = createdAt;
+        public void setRelatedBillId(Object relatedBillId) {
+            this.relatedBillId = relatedBillId;
         }
 
-        public String getUpdatedAt() {
-            return updatedAt;
+        public String getSentAt() {
+            return sentAt;
         }
 
-        public void setUpdatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-        }
-
-        public Object getDeletedAt() {
-            return deletedAt;
-        }
-
-        public void setDeletedAt(Object deletedAt) {
-            this.deletedAt = deletedAt;
-        }
-
-    }
-
-    public class Result {
-
-        @SerializedName("notifications")
-        @Expose
-        private List<Notification> notifications;
-
-        public List<Notification> getNotifications() {
-            return notifications;
-        }
-
-        public void setNotifications(List<Notification> notifications) {
-            this.notifications = notifications;
+        public void setSentAt(String sentAt) {
+            this.sentAt = sentAt;
         }
 
     }

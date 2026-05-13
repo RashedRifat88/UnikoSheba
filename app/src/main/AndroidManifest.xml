@@ -25,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnikoSheba">
         <activity
+            android:name=".ui.notifications.NotificationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.services.ServiceSearchActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
             android:exported="true"
             android:theme="@style/Theme.UnikoSheba" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.UnikoSheba">
             <intent-filter>
@@ -57,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true" /> <!-- <activity -->
         <!-- android:name=".credential.ForgetPasswordActivity" -->
         <!-- android:exported="true" /> -->

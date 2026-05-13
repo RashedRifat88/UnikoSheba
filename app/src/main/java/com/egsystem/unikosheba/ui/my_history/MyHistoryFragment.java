@@ -21,6 +21,7 @@ import com.egsystem.unikosheba.databinding.FragmentMyHistoryBinding;
 import com.egsystem.unikosheba.model.OrderList;
 import com.egsystem.unikosheba.retrofit.Api;
 import com.egsystem.unikosheba.retrofit.RetrofitApiClient;
+import com.egsystem.unikosheba.utils.AppUtils;
 
 import java.util.List;
 
@@ -96,6 +97,12 @@ public class MyHistoryFragment extends Fragment {
                             Log.d("tag111444", " response.code(): " + response.code());
 //                            progressDialog.dismiss();
                             binding.animationView.setVisibility(View.GONE);
+
+
+                            if (response.code() == 401) {
+                                AppUtils.goToLogin(getActivity(), true);
+                                return;
+                            }
 
                             if (response.isSuccessful()) {
 

@@ -47,7 +47,7 @@ public class NotificationsFragment extends Fragment {
 //        initStatusBar();
         initComponents();
         loadRecyclerView();
-        notificationListApi();
+//        notificationListApi();
 
 
         return root;
@@ -105,60 +105,60 @@ public class NotificationsFragment extends Fragment {
 
 
 
-    @SuppressLint("CheckResult")
-    public void notificationListApi() {
-
-        if (binding.animationView.getVisibility() == View.GONE) {
-            binding.animationView.setVisibility(View.VISIBLE);
-        }
-
-        String token = SharedData.getTOKEN(getActivity());
-        String authorization = "Bearer" + " " + token;
-        String accept = "application/json";
-        String phone = "01814220954";
-
-
-        RetrofitApiClient.getApiInterface().all_notification(authorization, accept)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {
-                            Log.d("tag11111", " response.code(): " + response.code());
-                            Log.d("tag111444", " response.code(): " + response.code());
-//                            progressDialog.dismiss();
-                            binding.animationView.setVisibility(View.GONE);
-
-                            if (response.isSuccessful()) {
-
-                                binding.animationView.setVisibility(View.GONE);
-
-                                NotificationModel model = response.body();
-                                Log.d("tag11111", " model: " + model);
-
-                                List<NotificationModel.Result> notifi_list = model.getResults();
-                                Log.d("tag11111", " notifi_list: " + notifi_list);
-
-//                                Collections.reverse(notifi_list);
-
-                                adapter.setData(notifi_list, "appointment_history_activity");
-                                adapter.notifyDataSetChanged();
-
-
-                            } else {
-
-                            }
-
-                        },
-                        error -> {
-
-                            Log.d("tag11111", " error: " + error.getMessage());
-                        },
-                        () -> {
-                            Log.d("tag11111", " response.code(): ");
-                        }
-
-                );
-
-    }
+//    @SuppressLint("CheckResult")
+//    public void notificationListApi() {
+//
+//        if (binding.animationView.getVisibility() == View.GONE) {
+//            binding.animationView.setVisibility(View.VISIBLE);
+//        }
+//
+//        String token = SharedData.getTOKEN(getActivity());
+//        String authorization = "Bearer" + " " + token;
+//        String accept = "application/json";
+//        String phone = "01814220954";
+//
+//
+//        RetrofitApiClient.getApiInterface().all_notification(authorization, accept)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(response -> {
+//                            Log.d("tag11111", " response.code(): " + response.code());
+//                            Log.d("tag111444", " response.code(): " + response.code());
+////                            progressDialog.dismiss();
+//                            binding.animationView.setVisibility(View.GONE);
+//
+//                            if (response.isSuccessful()) {
+//
+//                                binding.animationView.setVisibility(View.GONE);
+//
+//                                NotificationModel model = response.body();
+//                                Log.d("tag11111", " model: " + model);
+//
+//                                List<NotificationModel.Result> notifi_list = model.getResults();
+//                                Log.d("tag11111", " notifi_list: " + notifi_list);
+//
+////                                Collections.reverse(notifi_list);
+//
+//                                adapter.setData(notifi_list, "appointment_history_activity");
+//                                adapter.notifyDataSetChanged();
+//
+//
+//                            } else {
+//
+//                            }
+//
+//                        },
+//                        error -> {
+//
+//                            Log.d("tag11111", " error: " + error.getMessage());
+//                        },
+//                        () -> {
+//                            Log.d("tag11111", " response.code(): ");
+//                        }
+//
+//                );
+//
+//    }
 
 
 

@@ -31,7 +31,7 @@ import java.util.TimeZone;
 public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotificationAdapter.AppointmentHistoryViewHolder> {
 
     private List<String> dataSet = new ArrayList<>();
-    private List<NotificationModel.Result> appointmentList = new ArrayList<>();
+    private List<AllNotificationModel.Result> appointmentList = new ArrayList<>();
     private List<String> popularTopicTitleList = new ArrayList<>();
     private List<String> popularTopicPriceList = new ArrayList<>();
     private boolean allItemStatus = false;
@@ -71,7 +71,7 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
     }
 
 
-    public void setData(List<NotificationModel.Result> appointmentList, String from_where) {
+    public void setData(List<AllNotificationModel.Result> appointmentList, String from_where) {
         this.appointmentList = appointmentList;
         this.from_where = from_where;
         Log.d("tagResponse", " appointmentList: " + appointmentList);
@@ -125,7 +125,7 @@ public class AllNotificationAdapter extends RecyclerView.Adapter<AllNotification
 //        cardview.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fall_down_animation));
 
 
-        NotificationModel.Result appointment = appointmentList.get(position);
+        AllNotificationModel.Result appointment = appointmentList.get(position);
 
 
         String date1 = appointment.getSentAt();
