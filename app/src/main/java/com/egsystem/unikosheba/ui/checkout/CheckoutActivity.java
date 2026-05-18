@@ -24,12 +24,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.egsystem.unikosheba.MainActivity;
 import com.egsystem.unikosheba.R;
 import com.egsystem.unikosheba.adapters.ServicesAdapter;
 import com.egsystem.unikosheba.cart.CartAdapter;
 import com.egsystem.unikosheba.cart.CartListActivity;
 import com.egsystem.unikosheba.cart.CartModel;
 import com.egsystem.unikosheba.cart.Service;
+import com.egsystem.unikosheba.credential.LoginActivity;
 import com.egsystem.unikosheba.data.SharedData;
 import com.egsystem.unikosheba.data.database.DatabaseHelper;
 import com.egsystem.unikosheba.databinding.ActivityCheckoutBinding;
@@ -223,7 +225,18 @@ public class CheckoutActivity extends AppCompatActivity {
 //            return;
 //        }
 
-        if (db.isCartTableEmpty()) {
+        if (date.isEmpty() || date.equalsIgnoreCase("Select Date")) {
+            binding.tvDate.setError("Select date");
+            return;
+        }
+
+        if (time.isEmpty() || date.equalsIgnoreCase("Select Time")) {
+            binding.tvTime.setError("Select time");
+            return;
+        }
+
+
+            if (db.isCartTableEmpty()) {
             Toast.makeText(this, "Cart is empty!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -318,8 +331,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
 //        AppUtils.showProgressDialog(this);
 
-        String authorization = SharedData.getTOKEN(this);
-        Log.d("authorization", "authorization: " + authorization);
+
+        String authorization = "Bearer" + " " +  SharedData.getTOKEN(this);
+        Log.d("authorization", "authorization order: " + authorization);
         String accept = "application/json";
         String content_type = "application/json";
 
@@ -332,10 +346,12 @@ public class CheckoutActivity extends AppCompatActivity {
                 .subscribe(response -> {
                             AppUtils.hideProgressDialog();
                             Log.d("Response Code", "response: " + response);
-                            Log.d("Response Code", "Response Code: " + response.code());
+                            Log.d("Response Code", "Response Code Order Post: " + response.code());
 
                             if (response.code() == 401) {
-                                AppUtils.goToLogin(this, true);
+//                                AppUtils.goToLogin(this, false);
+                                Intent intent = new Intent(CheckoutActivity.this, LoginActivity.class);
+                                startActivity(intent);
                             }
 
                             if (response.isSuccessful()) {
@@ -350,6 +366,11 @@ public class CheckoutActivity extends AppCompatActivity {
                                         .onNegative(new MaterialDialog.SingleButtonCallback() {
                                             @Override
                                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                                                db.clearCart();
+                                                Intent intent = new Intent(CheckoutActivity.this, MainActivity.class);
+                                                startActivity(intent);
+                                                finish();
 
                                             }
                                         })

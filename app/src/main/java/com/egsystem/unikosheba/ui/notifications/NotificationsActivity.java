@@ -1,6 +1,7 @@
 package com.egsystem.unikosheba.ui.notifications;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,23 +45,31 @@ public class NotificationsActivity extends AppCompatActivity {
     AllNotificationAdapter adapter;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-            binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
+        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
-
-            initComponents();
+        initComponents();
         loadRecyclerView();
         notificationListApi();
 
 
     }
 
+    private void initStatusBar() {
+        View decor = getWindow().getDecorView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary, this.getTheme()));
+            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
 
 
 
@@ -73,14 +82,15 @@ public class NotificationsActivity extends AppCompatActivity {
 //
 //        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-    ////            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+    /// /            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 //            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); //set status text  light
 //        }
 //
 //    }
-
-
     private void initComponents() {
+
+        binding.imgBack.setOnClickListener(v -> finish());
 
 //        animationView = findViewById(R.id.animationView);
 //        recyclerView = findViewById(R.id.recyclerView);
@@ -103,7 +113,6 @@ public class NotificationsActivity extends AppCompatActivity {
 //        adapter.setData(appointmentImageList, appointmentsTitleList, popularTopicPriceList, false);
         adapter.notifyDataSetChanged();
     }
-
 
 
     @SuppressLint("CheckResult")
@@ -162,9 +171,6 @@ public class NotificationsActivity extends AppCompatActivity {
                 );
 
     }
-
-
-
 
 
 }

@@ -44,7 +44,7 @@ public class Services implements Serializable {
     public double price;
     public boolean selected;
 
-    public Services(String id,String title, String image, String description,
+    public Services(String id, String title, String image, String description,
                    double price) {
         this.id = id;
         this.title = title;

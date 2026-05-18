@@ -119,6 +119,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
         });
 
+        frame_notification.setOnClickListener(v -> {
+            if (SharedData.getIS_USER_LOGGED_IN(this)){
+                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                startActivity(intent);
+            }else {
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("Notification Status")
+                        .content("No notification")
+                        .positiveText("")
+                        .negativeText("Ok")
+                        .show();
+            }
+
+        });
+
 
 //        frame_notification.setOnClickListener(v -> {
 //            androidx.navigation.NavController navController =
@@ -130,10 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        });
 //
 
-        frame_notification.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
-            startActivity(intent);
-        });
+
 
 
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -155,7 +167,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 //        notificationListApi();
-        unreadNotificationCountApi();
+        if (SharedData.getIS_USER_LOGGED_IN(this)){
+            unreadNotificationCountApi();
+        }
 
         userAccount("");
 
@@ -461,14 +475,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
 
-                frame_notification.setOnClickListener(view -> {
-                    new MaterialDialog.Builder(MainActivity.this)
-                            .title("Notification Status")
-                            .content("No new notification")
-                            .positiveText("")
-                            .negativeText("Ok")
-                            .show();
-                });
+//                frame_notification.setOnClickListener(view -> {
+//                    new MaterialDialog.Builder(MainActivity.this)
+//                            .title("Notification Status")
+//                            .content("No new notification")
+//                            .positiveText("")
+//                            .negativeText("Ok")
+//                            .show();
+//                });
 
 
             } else {
@@ -477,10 +491,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     tv_notification_badge_count.setVisibility(View.VISIBLE);
                 }
 
-                frame_notification.setOnClickListener(view -> {
+//                frame_notification.setOnClickListener(view -> {
 //                    Intent intent = new Intent(MainActivity.this, UnreadNotificationActivity.class);
 //                    startActivity(intent);
-                });
+//                });
             }
         }
 
@@ -738,8 +752,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.d("tag1111166", " onStart is called in main: ");
         super.onStart();
 //        notificationListApi();
-        if (SharedData.isLog)
-        unreadNotificationCountApi();
+        if (SharedData.getIS_USER_LOGGED_IN(this)){
+            unreadNotificationCountApi();
+        }
+
     }
 
     @Override
@@ -753,7 +769,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
 
         updateCartBadge();
-        unreadNotificationCountApi();
+        if (SharedData.getIS_USER_LOGGED_IN(this)){
+            unreadNotificationCountApi();
+        }
     }
 
 

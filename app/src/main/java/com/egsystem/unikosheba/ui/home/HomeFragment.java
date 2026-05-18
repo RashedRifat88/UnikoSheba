@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -499,6 +500,30 @@ public class HomeFragment extends Fragment {
         imageList2.add(new SlideModel("file:///android_asset/home/img12.png", ScaleTypes.FIT));
 
         binding.imageSlider2.setImageList(imageList2);
+
+        binding.imageSlider2.setItemClickListener(new com.denzcoskun.imageslider.interfaces.ItemClickListener() {
+            @Override
+            public void onItemSelected(int position) {
+
+                String phoneNumber = "01711183455";
+
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+
+                // In a Fragment
+                if (getContext() != null &&
+                        intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void doubleClick(int position) {
+                // Optional: no action needed
+            }
+        });
+
+
         ///
 
 //        showProgressDialog();

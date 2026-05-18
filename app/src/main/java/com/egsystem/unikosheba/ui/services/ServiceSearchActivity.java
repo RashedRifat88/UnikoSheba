@@ -3,6 +3,7 @@ package com.egsystem.unikosheba.ui.services;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -61,10 +62,8 @@ public class ServiceSearchActivity extends AppCompatActivity {
 
         singleSubCat();
 
-//        clearRecentSearches();
+        clearRecentSearches();
     }
-
-
 
 
     private void loadRecentSearches() {
@@ -86,8 +85,6 @@ public class ServiceSearchActivity extends AppCompatActivity {
 
         recentSearchAdapter.notifyDataSetChanged();
     }
-
-
 
 
     private void initStatusBar() {
@@ -123,6 +120,17 @@ public class ServiceSearchActivity extends AppCompatActivity {
         rvService = findViewById(R.id.rvService);
 
         rvService.setLayoutManager(new LinearLayoutManager(this));
+
+
+        SearchView searchView = findViewById(R.id.searchView);
+// Expand the SearchView so the hint is visible immediately
+        searchView.setIconified(false);
+// Show only the hint text, with no query entered
+        searchView.setQuery("", false);
+// Set the hint text
+        searchView.setQueryHint("Touch icon for search");
+// Optional: keep focus away so the keyboard does not open automatically
+        searchView.clearFocus();
 
         // EMPTY ADAPTER
 //        serviceAdapter = new ServicesForSearchAdapter(this, filteredServices);
@@ -170,10 +178,7 @@ public class ServiceSearchActivity extends AppCompatActivity {
         );
 
 
-
-
         rvService.setAdapter(serviceAdapter);
-
 
 
         //recent
@@ -193,7 +198,6 @@ public class ServiceSearchActivity extends AppCompatActivity {
         );
 
         rvRecentSearch.setAdapter(recentSearchAdapter);
-
 
 
         // SEARCH
@@ -219,10 +223,7 @@ public class ServiceSearchActivity extends AppCompatActivity {
         });
 
 
-
-
     }
-
 
 
     private void saveRecentSearch(String text) {
@@ -263,10 +264,6 @@ public class ServiceSearchActivity extends AppCompatActivity {
             recentSearchAdapter.notifyDataSetChanged();
         }
     }
-
-
-
-
 
 
     @SuppressLint("CheckResult")
@@ -340,41 +337,74 @@ public class ServiceSearchActivity extends AppCompatActivity {
     }
 
     // SEARCH FILTER
+//    private void filterServices(String text) {
+//
+//        filteredServices.clear();
+//
+//        if (text == null || text.trim().isEmpty()) {
+//
+//            filteredServices.addAll(services);
+//
+//        } else {
+//
+//            String searchText = text.toLowerCase().trim();
+//
+//            for (Services item : services) {
+//
+//                boolean matchName =
+//                        item.getName() != null &&
+//                                item.getName().toLowerCase().contains(searchText);
+//
+////                boolean matchDescription =
+////                        item.getDescription() != null &&
+////                                item.getDescription().toLowerCase().contains(searchText);
+//
+
+    /// /                if (matchName || matchDescription) {
+    /// /
+    /// /                    filteredServices.add(item);
+    /// /                }
+//
+//                if (matchName) {
+//                    filteredServices.add(item);
+//                }
+//
+//
+//            }
+//        }
+//
+//        serviceAdapter.notifyDataSetChanged();
+//    }
     private void filterServices(String text) {
 
         filteredServices.clear();
 
         if (text == null || text.trim().isEmpty()) {
-
             filteredServices.addAll(services);
-
         } else {
+            String searchText = text.trim().toLowerCase();
 
-            String searchText = text.toLowerCase().trim();
+            Log.d("filteredServices", "searchText: " + searchText);
 
             for (Services item : services) {
+                String name = item.getTitle();
 
-                boolean matchName =
-                        item.getName() != null &&
-                                item.getName().toLowerCase().contains(searchText);
+                Log.d("filteredServices", "name: " + name);
 
-                boolean matchDescription =
-                        item.getDescription() != null &&
-                                item.getDescription().toLowerCase().contains(searchText);
 
-                if (matchName || matchDescription) {
-
+                if (name != null &&
+                        name.toLowerCase().contains(searchText)) {
                     filteredServices.add(item);
+                    Log.d("filteredServices", "filteredServices 2: " + filteredServices);
                 }
             }
         }
 
         serviceAdapter.notifyDataSetChanged();
     }
+
+
 }
-
-
-
 
 
 //package com.egsystem.unikosheba.ui.services;
@@ -436,9 +466,9 @@ public class ServiceSearchActivity extends AppCompatActivity {
 //        setContentView(binding.getRoot());
 //
 //
-////        frame_cart.setOnClickListener(v -> {
-////            startActivity(new Intent(this, CartListActivity.class));
-////        });
+/// /        frame_cart.setOnClickListener(v -> {
+/// /            startActivity(new Intent(this, CartListActivity.class));
+/// /        });
 //
 //        initStatusBar();
 //        initComponent();
@@ -476,7 +506,7 @@ public class ServiceSearchActivity extends AppCompatActivity {
 //
 //        AppUtils.showProgressDialog(this);
 //
-////        String url = Api.BASE_URL + Api.subcategories + "/" + subCatId;
+/// /        String url = Api.BASE_URL + Api.subcategories + "/" + subCatId;
 //        String accept = "application/json";
 //
 //        RetrofitApiClient.getApiInterface()

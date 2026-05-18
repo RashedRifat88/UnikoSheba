@@ -55,11 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         boolean isLogged_in = SharedData.getIS_USER_LOGGED_IN(this);
-        if (isLogged_in) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        if (isLogged_in) {
+//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
         initStatusBar();
         initComponents();
@@ -522,7 +522,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                String usera_password = loginModel.getUser().getPassword();
 
 
-                                SharedData.saveTOKEN(LoginActivity.this, userToken);
+//                                SharedData.saveTOKEN(LoginActivity.this, userToken);
                                 SharedData.saveTOKEN(LoginActivity.this, userToken);
                                 SharedData.saveUSER_NAME(LoginActivity.this, user_name);
                                 SharedData.saveUSER_ID(LoginActivity.this, user_id);

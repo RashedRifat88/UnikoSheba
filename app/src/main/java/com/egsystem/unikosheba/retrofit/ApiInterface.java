@@ -56,6 +56,7 @@ import com.egsystem.unikosheba.model.PublicResultModel;
 import com.egsystem.unikosheba.model.QuizListModel;
 import com.egsystem.unikosheba.model.QuizQuestionFileModel;
 import com.egsystem.unikosheba.model.QuizResultModel;
+import com.egsystem.unikosheba.model.ReadSpecificNotificationModel;
 import com.egsystem.unikosheba.model.RegisterModel;
 import com.egsystem.unikosheba.model.SellPostListModel;
 import com.egsystem.unikosheba.model.SellPostModel;
@@ -370,6 +371,12 @@ public interface ApiInterface {
 
     @GET(Api.unread_notifications_count)
     Observable<Response<UnreadNotificationsCountModel>> unread_notifications_count(@Header("authorization") String authorization,
+                                                                                   @Header("Accept") String accept
+    );
+
+    @POST()
+    Observable<Response<ReadSpecificNotificationModel>> read_specific_notification(@Url String urlString,
+                                                                                   @Header("authorization") String authorization,
                                                                                    @Header("Accept") String accept
     );
 
@@ -711,6 +718,8 @@ public interface ApiInterface {
     );
 
 
+
+    @Headers("Content-Type: application/json")
     @POST(Api.jobs)
     Observable<Response<PostOrder>> post_order(@Header("authorization") String authorization,
                                                @Body String body

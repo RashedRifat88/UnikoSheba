@@ -81,6 +81,23 @@
 <!--                                    android:textSize="18sp"-->
 <!--                                    android:textStyle="bold" />-->
 
+<!--                                <androidx.appcompat.widget.SearchView-->
+<!--                                    android:id="@+id/searchView"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="45dp"-->
+<!--                                    android:layout_centerVertical="true"-->
+<!--                                    android:layout_toRightOf="@+id/img_back"-->
+<!--                                    android:layout_marginStart="12dp"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:layout_marginEnd="12dp"-->
+<!--                                    android:background="@drawable/rounded_corner5"-->
+<!--                                    android:queryHint="Touch search icon for searching"-->
+<!--                                    android:hint="Touch search icon for searching"-->
+<!--                                    android:iconifiedByDefault="false"-->
+<!--                                    app:closeIcon="@drawable/ic_close"-->
+<!--                                    app:searchIcon="@drawable/ic_search3" />-->
+
+
                                 <androidx.appcompat.widget.SearchView
                                     android:id="@+id/searchView"
                                     android:layout_width="match_parent"
@@ -90,9 +107,10 @@
                                     android:layout_marginStart="12dp"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginEnd="12dp"
-                                    android:background="@drawable/rounded_corner5"
-                                    android:queryHint="Search services..."
+                                    android:background="@drawable/rounded_corner10"
                                     android:iconifiedByDefault="false"
+                                    android:queryHint="Touch icon for searching"
+                                    app:defaultQueryHint="Touch icon for searching"
                                     app:closeIcon="@drawable/ic_close"
                                     app:searchIcon="@drawable/ic_search3" />
 
